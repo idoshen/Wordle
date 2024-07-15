@@ -12,11 +12,11 @@ class Wordle:
     def __init__(self):
         self.word_bank = load_words()
         self.target_word = random.choice(self.word_bank)
-        print(self.target_word)
+        self.current_guess = self.input_validator()
 
-    def input_validator():
+    def input_validator(self):
         user_input = ''
-        while (len(user_input) != 5 or not user_input.isalpha()):
+        while (user_input not in self.word_bank):
             print('insert 5 letter word:')
             user_input = input()
 
