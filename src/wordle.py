@@ -1,4 +1,5 @@
 import random
+from guess_handler import GuessHandler
 
 def load_words():
     with open("../data/allowed_words.txt") as f:
@@ -8,11 +9,13 @@ def load_words():
 class Wordle:
     def __init__(self):
         self.word_bank = load_words()
-        self.target_word = random.choice(self.word_bank)
+        #self.target_word = random.choice(self.word_bank)
+        self.target_word = 'sense'
+        self.guess_handler = GuessHandler(target_word=self.target_word)
 
     def input_validator(self):
         user_input = ''
-        while (user_input not in self.word_bank):
+        while user_input not in self.word_bank:
             print('insert 5 letter word:')
             user_input = input()
 
@@ -25,6 +28,7 @@ class Wordle:
 
         while guess_counter < 6 and current_guess != self.target_word:
             current_guess = self.input_validator()
+            self.guess_handler.mark_guess(current_guess)
             guess_counter += 1
 
         if current_guess == self.target_word:
