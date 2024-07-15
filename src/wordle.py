@@ -5,14 +5,10 @@ def load_words():
         words = f.read().splitlines()
     return words 
 
-def main():
-    new_game = Wordle()
-
 class Wordle:
     def __init__(self):
         self.word_bank = load_words()
         self.target_word = random.choice(self.word_bank)
-        self.current_guess = self.input_validator()
 
     def input_validator(self):
         user_input = ''
@@ -21,6 +17,26 @@ class Wordle:
             user_input = input()
 
         return user_input
+    
+    def run_game(self):
+        print(self.target_word)
+        guess_counter = 0
+        current_guess = ''
+
+        while guess_counter < 6 and current_guess != self.target_word:
+            current_guess = self.input_validator()
+            guess_counter += 1
+
+        if current_guess == self.target_word:
+            print('winner')
+        else:
+            print('loser')
+
+def main():
+    new_game = Wordle()
+    new_game.run_game()
+
+
 
 if __name__ == "__main__":
     main()
