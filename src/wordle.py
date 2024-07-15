@@ -9,20 +9,22 @@ def load_words():
 class Wordle:
     def __init__(self):
         self.word_bank = load_words()
-        #self.target_word = random.choice(self.word_bank)
-        self.target_word = 'sense'
+        self.target_word = random.choice(self.word_bank)
+        # self.target_word = 'saved'
         self.guess_handler = GuessHandler(target_word=self.target_word)
 
     def input_validator(self):
-        user_input = ''
+        print('insert 5 letter word:')
+        user_input = input()
+        
         while user_input not in self.word_bank:
-            print('insert 5 letter word:')
+            print('invalid input, please enter 5 letter word:')
             user_input = input()
 
         return user_input
     
     def run_game(self):
-        print(self.target_word)
+        # print(self.target_word)
         guess_counter = 0
         current_guess = ''
 
@@ -34,11 +36,19 @@ class Wordle:
         if current_guess == self.target_word:
             print('winner')
         else:
-            print('loser')
+            print(f'loser, target word is {self.target_word}')
+
+        print('new game? y/n')
+        
+        return input() == 'y'
+
 
 def main():
     new_game = Wordle()
-    new_game.run_game()
+    is_running = True
+    while is_running:
+        is_running = new_game.run_game()
+        new_game.__init__()
 
 
 
