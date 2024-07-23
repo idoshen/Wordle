@@ -1,0 +1,11 @@
+.wordle-header {
+  background-color: aqua;
+}
+
+.header-text {
+  font-size: 68px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+}
