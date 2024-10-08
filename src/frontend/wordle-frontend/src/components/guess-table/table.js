@@ -10,8 +10,27 @@ const Table = () => {
   //     setActiveRow((prevActiveRow) => prevActiveRow + 1);
   // };
 
-  const handleEnterPress = () => {
-    setActiveRow((prevActiveRow) => prevActiveRow + 1);
+  const handleEnterPress = async (word) => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:5000/handle-input?word=${encodeURIComponent(word)}`,
+        {
+          method: "GET", // You can change this to 'POST' if needed
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json(); // Assuming the server responds with JSON
+      console.log(data); // Handle the data received from the server
+
+      // Update the active row after the request
+      setActiveRow((prevActiveRow) => prevActiveRow + 1);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   return (

@@ -7,7 +7,6 @@ import "./row.css";
 const Row = ({ isActive, onEnterPress }) => {
   const [squares, setSquares] = useState(["", "", "", "", ""]);
   const [currentSquare, setCurrentSquare] = useState(0);
-  
 
   useEffect(() => {
     if (!isActive) return;
@@ -28,9 +27,11 @@ const Row = ({ isActive, onEnterPress }) => {
         if (currentSquare > 0) {
           setCurrentSquare(currentSquare - 1);
         }
-      } else if (key === "Enter"){
-        if (currentSquare === squares.length){
-          onEnterPress();
+      } else if (key === "Enter") {
+        if (currentSquare === squares.length) {
+          const word = squares.join("");
+          console.log(word);
+          onEnterPress(word);
         }
       }
     };
