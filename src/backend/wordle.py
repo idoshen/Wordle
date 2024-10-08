@@ -4,7 +4,7 @@ from wordle_solver import WordleSolver
 
 def load_words():
     '''Load words from file'''
-    with open("./data/allowed_words.txt") as f:
+    with open("../../data/allowed_words.txt") as f:
         words = f.read().splitlines()
     return words 
 
@@ -61,8 +61,6 @@ def main():
     while is_running:
         is_running = new_game.run_game()
         new_game.__init__()
-
-
 
 if __name__ == "__main__":
     main()
