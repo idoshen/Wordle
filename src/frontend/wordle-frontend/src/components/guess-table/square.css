@@ -1,7 +1,14 @@
 .square {
-    width: 52px;
-    height: 52px;
-    background-color: #586f7d;
-    margin : 2px;
-    border: 2px solid black;
+  width: 52px;
+  height: 52px;
+  background-color: #586f7d;
+  margin: 2px;
+  border: 2px solid black;
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  padding: 5px 5px;
+  text-transform: uppercase;
 }

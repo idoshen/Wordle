@@ -1,8 +1,8 @@
 import "./square.css";
 
-function Square() {
+function Square({character}) {
   return <div className="square">
-    {}  
+    {character}  
   </div>;
 }
 
