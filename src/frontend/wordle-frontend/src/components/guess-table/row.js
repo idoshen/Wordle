@@ -20,7 +20,6 @@ const Row = ({ isActive, onEnterPress }) => {
         setCurrentSquare(currentSquare + 1);
         //onCharacterAdded();
       } else if (key === "Backspace") {
-        console.log("backspace pressed");
         const newSquares = [...squares];
         newSquares[currentSquare - 1] = "";
         setSquares(newSquares);

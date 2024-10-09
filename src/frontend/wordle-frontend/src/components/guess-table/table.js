@@ -13,7 +13,9 @@ const Table = () => {
   const handleEnterPress = async (word) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/handle-input?word=${encodeURIComponent(word)}`,
+        `http://192.168.1.222:5000/handle-input?word=${encodeURIComponent(
+          word
+        )}`,
         {
           method: "GET", // You can change this to 'POST' if needed
         }
@@ -26,8 +28,12 @@ const Table = () => {
       const data = await response.json(); // Assuming the server responds with JSON
       console.log(data); // Handle the data received from the server
 
-      // Update the active row after the request
-      setActiveRow((prevActiveRow) => prevActiveRow + 1);
+      if (data.legal === false) {
+        alert("word not in word bank");
+      } else {
+        // Update the active row after the request
+        setActiveRow((prevActiveRow) => prevActiveRow + 1);
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
