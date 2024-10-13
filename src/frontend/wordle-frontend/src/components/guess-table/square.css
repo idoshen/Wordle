@@ -12,3 +12,15 @@
   padding: 5px 5px;
   text-transform: uppercase;
 }
+
+.yellow-square {
+  background-color: #c3ab11;
+}
+
+.white-square {
+  background-color: #586f7d;
+}
+
+.green-square {
+  background-color: #25a112;
+}

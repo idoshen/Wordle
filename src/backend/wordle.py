@@ -1,10 +1,12 @@
 import random
 from guess_handler import GuessHandler
 from wordle_solver import WordleSolver
+import os
 
 def load_words():
     '''Load words from file'''
-    with open("../../data/allowed_words.txt") as f:
+    print(os.getcwd())
+    with open("./data/allowed_words.txt") as f:
         words = f.read().splitlines()
     return words 
 

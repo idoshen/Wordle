@@ -4,7 +4,7 @@ import Square from "./square";
 import "./row.css";
 
 //, onCharacterAdded this was an input here
-const Row = ({ isActive, onEnterPress }) => {
+const Row = ({ isActive, onEnterPress, markings }) => {
   const [squares, setSquares] = useState(["", "", "", "", ""]);
   const [currentSquare, setCurrentSquare] = useState(0);
 
@@ -29,7 +29,6 @@ const Row = ({ isActive, onEnterPress }) => {
       } else if (key === "Enter") {
         if (currentSquare === squares.length) {
           const word = squares.join("");
-          console.log(word);
           onEnterPress(word);
         }
       }
@@ -46,7 +45,11 @@ const Row = ({ isActive, onEnterPress }) => {
   return (
     <div className="row">
       {squares.map((char, index) => (
-        <Square key={index} character={char} />
+        <Square
+          key={index}
+          character={char}
+          marking={markings ? markings[index] : "white-square"}
+        />
       ))}
     </div>
   );

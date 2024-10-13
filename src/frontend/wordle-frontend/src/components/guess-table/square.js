@@ -1,9 +1,7 @@
 import "./square.css";
 
-function Square({character}) {
-  return <div className="square">
-    {character}  
-  </div>;
+function Square({ character, marking }) {
+  return <div className={`square ${marking}`}>{character}</div>;
 }
 
 export default Square;
