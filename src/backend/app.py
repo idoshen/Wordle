@@ -19,7 +19,13 @@ def handle_input():
       
     return jsonify({'word': word, 'legal': legal, 'marking': marking}), 200
 
-
+@app.route('/restart-game', methods=['POST'])
+def restart_game():
+    global wordle
+    wordle = Wordle()
+    print(wordle.target_word)
+    
+    return jsonify({'message': 'Game restarted'}), 200
 
 if __name__ == '__main__':
 

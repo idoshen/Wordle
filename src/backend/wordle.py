@@ -4,7 +4,7 @@ from wordle_solver import WordleSolver
 
 def load_words():
     '''Load words from file'''
-    with open("../../data/allowed_words.txt") as f:
+    with open("./data/allowed_words.txt") as f:
         words = f.read().splitlines()
     return words 
 
@@ -14,6 +14,7 @@ class Wordle:
         self.word_bank = load_words()
         self.target_word = random.choice(self.word_bank)
         self.guess_handler = GuessHandler(target_word=self.target_word)
+        print(self.target_word)
 
     def input_validator(self):
         '''Validate user input'''
