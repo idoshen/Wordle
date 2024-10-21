@@ -16,6 +16,7 @@ class Wordle:
         self.word_bank = load_words()
         self.target_word = random.choice(self.word_bank)
         self.guess_handler = GuessHandler(target_word=self.target_word)
+        print(self.target_word)
 
     def input_validator(self):
         '''Validate user input'''

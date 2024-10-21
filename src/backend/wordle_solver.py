@@ -71,4 +71,3 @@ class WordleSolver:
         for i in range(min(len(self.entropy_list),10)):
             word, entropy = self.entropy_list[i]
             print(f"{i + 1}. {word} - {entropy}")
-
